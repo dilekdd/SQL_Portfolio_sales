@@ -13,6 +13,7 @@ customer_last_purchase AS (
 SELECT 
     clp.customer_code,
     clp.last_purchase_date,
+	md.analysis_date,
     CASE
         WHEN md.analysis_date - clp.last_purchase_date <= INTERVAL '30 days' THEN 'Active Customer'
         WHEN md.analysis_date - clp.last_purchase_date > INTERVAL '30 days' 
